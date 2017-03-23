@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React sample</title>
+    <script src="./jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <style>
+        button.btn {
+            width: 100%;
+        }
+
+        .btn-success {
+            display: block;
+        }
+
+        .btn-danger {
+            display: none;
+        }
+
+        .running>.btn-success {
+            display: none;
+        }
+
+        .running>.btn-danger {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // /* globals $ */
+        // function handleClick(e) {
+        //     var $p = $(e.target.parentNode);
+        //     $p && $p.toggleClass('running');
+        // }
+        // $(function() {
+        //     $('.well > .btn').on('click', handleClick);
+        // });
+
+        function createDOMFromString(stringDOM) {
+            const div = document.createElement('div');
+            div.innerHTML = stringDOM;
+            return div;
+        }
+        function toggleClass(element, className){
+            if(element){
+                var classList = element.classList||[];
+                var flag = false;
+                for(var i = classList.length; i > 0; i--){
+                    if(classList[i] === className){
+                        flag = true;
+                        classList.remove(className);
+                        break;
+                    }
+                }
+                if(flag === false) classList.add(className);
+            }
+        }
+
+        class CustomButton {
+            render() {
+                this.elm = createDOMFromString(
+                    `
+                        <div class="container well">
+                            <button class="btn btn-success"> Start </button>
+                            <button class="btn btn-danger"> Stop </button>
+                        </div>
+                    `
+                );
+                this.elm.addEventListener('click', (e) => {
+                    var target = e.target;
+                    var parent = target && target.parentElement;
+                    parent && toggleClass(parent, 'running');
+                });
+                return this.elm;
+            }
+        }
+        const wrapper = document.body;
+        const btnA = new CustomButton();
+        wrapper.appendChild(btnA.render());
+        const btnB = new CustomButton();
+        wrapper.appendChild(btnB.render());
+    </script>
+</body>
+
+</html>
