@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React sample</title>
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <style>
+        .btn-success {
+            display: block;
+        }
+
+        .btn-danger {
+            display: none;
+        }
+
+        .running>.btn-success {
+            display: none;
+        }
+
+        .running>.btn-danger {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="well running">
+                <button class="btn btn-success">
+                    Start
+                </button>
+                <button class="btn btn-danger">
+                    Stop
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* globals $ */
+        function handleClick(e) {
+            var $p = $(e.target.parentNode);
+            $p && $p.toggleClass('running');
+        }
+        $(function() {
+            $('.well > .btn').on('click', handleClick);
+        });
+    </script>
+</body>
+
+</html>
