@@ -7,6 +7,10 @@
     <script src="../jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="../bootstrap.min.css">
     <style>
+        button.btn {
+            width: 100%;
+        }
+
         .btn-success {
             display: block;
         }
@@ -26,17 +30,9 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="well running">
-                <button class="btn btn-success">
-                    Start
-                </button>
-                <button class="btn btn-danger">
-                    Stop
-                </button>
-            </div>
-        </div>
+    <div class="container well">
+        <button class="btn btn-success"> Start </button>
+        <button class="btn btn-danger"> Stop </button>
     </div>
 
     <script>
