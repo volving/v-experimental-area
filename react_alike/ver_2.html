@@ -30,10 +30,12 @@
 </head>
 
 <body>
+    <!--
     <div class="container well">
         <button class="btn btn-success"> Start </button>
         <button class="btn btn-danger"> Stop </button>
     </div>
+    -->
 
     <script>
         /* globals $ */
@@ -45,8 +47,8 @@
             $('.well > .btn').on('click', handleClick);
         });
 
-        class CustomButton{
-            render(){
+        class CustomButton {
+            render() {
                 return `
                     <div class="container well">
                         <button class="btn btn-success"> Start </button>
