@@ -1,0 +1,20 @@
+{
+  "name": "v-experimental-field",
+  "description": "A place to try out new stuffs.",
+  "main": "index.js",
+  "authors": [
+    "volving <volving@icloud.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/volving/v-experimental-area",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
