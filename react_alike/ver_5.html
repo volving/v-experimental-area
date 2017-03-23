@@ -38,7 +38,9 @@
         }
         class Component {
             constructor(props) {
-                this.props = props;
+                this.props = props || {
+                    classList: []
+                };
                 this.state = {};
             }
             setState(state) {
@@ -51,8 +53,14 @@
                 }
             }
             renderDOM() {
-                this.el = this.render();
-                return this.el;
+                this.elm = this.render();
+                console.log(this.elm.classList);
+                var classList = this.props.classList;
+                classList.map(item=>{
+                    this.elm.classList.add(item);
+                });
+                console.log(this.elm.classList);
+                return this.elm;
             }
             handleStateChange(oldElm, newElm) {
                 oldElm.after(newElm);
@@ -63,8 +71,8 @@
 
         var DoactDOM = {
             render: function(component, wrapper) {
-                var btn = component.renderDOM();
-                wrapper.appendChild(btn);
+                var domElm = component.renderDOM();
+                wrapper.appendChild(domElm);
             }
         };
 
@@ -135,7 +143,9 @@
                 return this.elm;
             }
         }
-        DoactDOM.render(new CustomInput(), wrapper);
+        DoactDOM.render(new CustomInput({
+            classList: ['container', 'well']
+        }), wrapper);
     </script>
 </body>
 
