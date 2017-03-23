@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>React sample</title>
-    <script src="./jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./bootstrap.min.css">
     <style>
         button.btn {
@@ -32,15 +31,6 @@
 <body>
 
     <script>
-        // /* globals $ */
-        // function handleClick(e) {
-        //     var $p = $(e.target.parentNode);
-        //     $p && $p.toggleClass('running');
-        // }
-        // $(function() {
-        //     $('.well > .btn').on('click', handleClick);
-        // });
-
         function createDOMFromString(stringDOM) {
             const div = document.createElement('div');
             div.innerHTML = stringDOM;
