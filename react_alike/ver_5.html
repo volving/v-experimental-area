@@ -54,12 +54,22 @@
             }
             renderDOM() {
                 this.elm = this.render();
-                console.log(this.elm.classList);
+                var elm = this.elm;
+                /* classList = ['aaa', 'bbb'...]
                 var classList = this.props.classList;
                 classList.map(item=>{
-                    this.elm.classList.add(item);
+                    elm.classList.add(item);
                 });
-                console.log(this.elm.classList);
+                */
+                var props = this.props;
+                for(var item in props){
+                    console.log(item);
+                    elm.setAttribute(item, props[item]);
+                }
+
+
+                // Insert Others
+
                 return this.elm;
             }
             handleStateChange(oldElm, newElm) {
@@ -136,7 +146,7 @@
             }
             render() {
                 var domString = `
-                    <input type="text" placeholder="Enter text here!"}/>
+                    <input type="text" placeholder="Enter text here!" class="form-control"/>
                 `;
                 this.elm = createDOMFromString(domString);
                 this.elm.onfocus = this.handleFocus;
@@ -144,7 +154,8 @@
             }
         }
         DoactDOM.render(new CustomInput({
-            classList: ['container', 'well']
+            class: 'container well',
+            id: 'mainInput'
         }), wrapper);
     </script>
 </body>
